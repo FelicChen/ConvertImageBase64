@@ -13,4 +13,10 @@
     <Content Include="av448-vux1o-001.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="regedit.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
