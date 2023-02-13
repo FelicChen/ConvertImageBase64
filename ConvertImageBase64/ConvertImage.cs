@@ -1,4 +1,6 @@
-﻿namespace ConvertImageBase64
+﻿using HeyRed.Mime;
+
+namespace ConvertImageBase64
 {
     public static class ConvertImage
     {
@@ -17,7 +19,7 @@
                     ms.Position = 0;
                     ms.Read(b, 0, (int)ms.Length);
                     ms.Close();
-                    rt = Convert.ToBase64String(b);
+                    rt = $"data:{MimeTypesMap.GetMimeType(Path.GetExtension(file))};base64,{Convert.ToBase64String(b)}";
                 }
             }
             catch (Exception ex)
