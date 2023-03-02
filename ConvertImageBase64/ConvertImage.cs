@@ -12,13 +12,7 @@ namespace ConvertImageBase64
             {
                 if (File.Exists(file))
                 {
-                    Bitmap bmp = new(file);
-                    MemoryStream ms = new();
-                    bmp.Save(ms, bmp.RawFormat);
-                    byte[] b = new byte[ms.Length];
-                    ms.Position = 0;
-                    ms.Read(b, 0, (int)ms.Length);
-                    ms.Close();
+                    byte[] b = File.ReadAllBytes(file);
                     rt = $"data:{MimeTypesMap.GetMimeType(Path.GetExtension(file))};base64,{Convert.ToBase64String(b)}";
                 }
             }
